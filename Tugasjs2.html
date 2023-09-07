@@ -1,0 +1,60 @@
+<script>
+    // Data pegawai
+var pegawai = {
+  nama: "Ridwan",
+  jabatan: "Manager",
+  status: "menikah",
+};
+
+// Fungsi untuk menghitung gaji pokok
+function hitungGajiPokok(jabatan) {
+  switch (jabatan) {
+    case "Manager":
+      return 15000000; // 15 juta
+    case "Asisten Manager":
+      return 10000000; // 10 juta
+    case "Staff":
+      return 5000000; // 5 juta
+    default:
+      return 0;
+  }
+}
+
+// Fungsi untuk menghitung tunjangan jabatan
+function hitungTunjanganJabatan(gajiPokok) {
+  return 0.15 * gajiPokok; // 15% dari gaji pokok
+}
+
+// Fungsi untuk menghitung BPJS
+function hitungBPJS(gajiPokok) {
+  return 0.10 * gajiPokok; // 10% dari gaji pokok
+}
+
+// Fungsi untuk menghitung tunjangan keluarga
+function hitungTunjanganKeluarga(status, gajiPokok) {
+  if (status === "menikah") {
+    return 0.20 * gajiPokok; // 20% dari gaji pokok jika menikah
+  } else {
+    return 0; // Tidak ada tunjangan keluarga jika belum menikah
+  }
+}
+
+// Menghitung total gaji
+var gajiPokok = hitungGajiPokok(pegawai.jabatan);
+var tunjanganJabatan = hitungTunjanganJabatan(gajiPokok);
+var bpjs = hitungBPJS(gajiPokok);
+var tunjanganKeluarga = hitungTunjanganKeluarga(pegawai.status, gajiPokok);
+
+var totalGaji = gajiPokok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+// Menampilkan hasil
+console.log("Nama Pegawai:", pegawai.nama);
+console.log("Jabatan:", pegawai.jabatan);
+console.log("Status:", pegawai.status);
+console.log("Gaji Pokok:", gajiPokok);
+console.log("Tunjangan Jabatan:", tunjanganJabatan);
+console.log("BPJS:", bpjs);
+console.log("Tunjangan Keluarga:", tunjanganKeluarga);
+console.log("Total Gaji:", totalGaji);
+
+</script>
