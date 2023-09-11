@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toko Online</title>
+</head>
+<body>
+    <h1>Form Toko Online</h1>
+    <form id="tokoOnlineForm">
+        <label for="nama">Nama Pelanggan:</label>
+        <input type="text" id="nama" name="nama" required><br><br>
+        
+        <label for="produk">Pilih Produk:</label>
+        <select id="produk" name="produk">
+            <option value="TV">TV</option>
+            <option value="AC">AC</option>
+            <option value="Kulkas">Kulkas</option>
+        </select><br><br>
+        
+        <label for="jumlah">Jumlah Item Produk:</label>
+        <input type="number" id="jumlah" name="jumlah" required><br><br>
+        
+        <input type="button" value="Beli" id="proses">
+    </form>
+
+    <script>
+        document.getElementById("proses").onclick = function() {
+            var nama = document.getElementById("nama").value;
+            var produk = document.getElementById("produk").value;
+            var jumlah = parseInt(document.getElementById("jumlah").value);
+            var hargaSatuan;
+
+            switch (produk) {
+                case "TV":
+                    hargaSatuan = 2000000;
+                    break;
+                case "AC":
+                    hargaSatuan = 3000000;
+                    break;
+                case "Kulkas":
+                    hargaSatuan = 4000000;
+                    break;
+            }
+
+            var hargaKotor = hargaSatuan * jumlah;
+            var diskon = 0;
+
+            if (produk === "Kulkas" && jumlah >= 3) {
+                diskon = 0.3 * hargaKotor;
+            } else if (produk === "AC" && jumlah >= 3) {
+                diskon = 0.2 * hargaKotor;
+            } else {
+                diskon = 0.1 * hargaKotor;
+            }
+
+            var ppn = 0.1 * (hargaKotor - diskon);
+            var hargaBayar = (hargaKotor - diskon) + ppn;
+
+            var hasilTransaksi = "Nama Pelanggan: " + nama + "\n" +
+                "Produk yang Dibeli: " + produk + "\n" +
+                "Harga Satuan: " + hargaSatuan + "\n" +
+                "Jumlah Item Produk yang Dibeli: " + jumlah + "\n" +
+                "Harga Kotor: " + hargaKotor + "\n" +
+                "Diskon: " + diskon + "\n" +
+                "PPN: " + ppn + "\n" +
+                "Harga Bayar: " + hargaBayar;
+
+            alert(hasilTransaksi);
+        };
+    </script>
+</body>
+</html>
