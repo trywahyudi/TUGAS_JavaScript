@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skala Gempa</title>
+</head>
+<body>
+    <script>
+        // Membuat class Gempa
+class Gempa {
+  constructor(lokasi, skala) {
+    this.lokasi = lokasi;
+    this.skala = skala;
+  }
+
+  dampak() {
+    let dampakText = "";
+
+    if (this.skala >= 0 && this.skala <= 2) {
+      dampakText = "Tidak terasa";
+    } else if (this.skala > 2 && this.skala <= 4) {
+      dampakText = "Bangunan retak-retak";
+    } else if (this.skala > 4 && this.skala <= 6) {
+      dampakText = "Bangunan roboh";
+    } else if (this.skala > 6) {
+      dampakText = "Bangunan roboh dan berpotensi tsunami";
+    }
+
+    console.log("Lokasi Gempa: " + this.lokasi);
+    console.log("Skala: " + this.skala);
+    console.log("Dampak: " + dampakText);
+  }
+}
+
+// Membuat 5 informasi Gempa hari ini
+const gempa1 = new Gempa("Indonesia", 1.5);
+const gempa2 = new Gempa("Jepang", 3.7);
+const gempa3 = new Gempa("California", 5.2);
+const gempa4 = new Gempa("Chile", 7.0);
+const gempa5 = new Gempa("Alaska", 8.5);
+
+// Menggunakan fungsi dampak() untuk mencetak informasi gempa
+console.log("Informasi Gempa 1:");
+gempa1.dampak();
+
+console.log("\nInformasi Gempa 2:");
+gempa2.dampak();
+
+console.log("\nInformasi Gempa 3:");
+gempa3.dampak();
+
+console.log("\nInformasi Gempa 4:");
+gempa4.dampak();
+
+console.log("\nInformasi Gempa 5:");
+gempa5.dampak();
+
+    </script>
+</body>
+</html>
