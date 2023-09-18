@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Info Bidang</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <ul>
+    <li id="profile">Profile</li>
+    <li id="moto_hidup">Moto Hidup</li>
+    <li id="keahlian">Keahlian</li>
+  </ul>
+
+  <div id="info_display">
+    <!-- Tempat untuk menampilkan informasi -->
+  </div>
+
+  <script>
+    // Fungsi untuk menampilkan informasi berdasarkan judul yang dipilih
+    function tampilkanInformasi(judul, konten) {
+      $('#info_display').html(`<h2>${judul}</h2><p>${konten}</p>`);
+    }
+
+    $(document).ready(function() {
+      // Menangani klik pada pilihan bidang
+      $('#profile').click(function() {
+        tampilkanInformasi('Profile', 'Informasi tentang profile pribadi');
+      });
+
+      $('#moto_hidup').click(function() {
+        tampilkanInformasi('Moto Hidup', 'Moto hidup dan alasan');
+      });
+
+      $('#keahlian').click(function() {
+        tampilkanInformasi('Keahlian', 'Keahlian dan pengalaman');
+      });
+    });
+  </script>
+</body>
+</html>
